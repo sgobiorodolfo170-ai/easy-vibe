@@ -135,7 +135,7 @@ npm install
 npm install vite-plugin-pwa -D
 ```
 
-Sau khi AI hoàn tất, cấu trúc dự án của bạn sẽ trông大致 như sau:
+Sau khi AI hoàn tất, cấu trúc dự án của bạn sẽ trông đại loại như sau:
 
 ```text
 tomato-farm-pwa/

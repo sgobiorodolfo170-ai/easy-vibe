@@ -2,7 +2,7 @@
 
 # Kapitel 1: Was Electron und Desktop-App-Entwicklung sind
 
-In diesem Tutorial werden wir einen vollständigen闭环 durchlaufen: von Grund auf eine Sprache-zu-Text-Desktop-App mit Electron bauen, sowohl Cloud-API als auch lokales Modell-Erkennungsmodi unterstützen und sie schließlich als echte Desktop-Anwendung verpacken, die auf Windows, macOS und Linux installiert und ausgeführt werden kann.
+In diesem Tutorial werden wir einen vollständigen geschlossenen Kreislauf durchlaufen: von Grund auf eine Sprache-zu-Text-Desktop-App mit Electron bauen, sowohl Cloud-API als auch lokales Modell-Erkennungsmodi unterstützen und sie schließlich als echte Desktop-Anwendung verpacken, die auf Windows, macOS und Linux installiert und ausgeführt werden kann.
 
 Für dieses Tutorial sollten Sie mindestens Folgendes haben:
 

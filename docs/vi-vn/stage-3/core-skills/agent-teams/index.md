@@ -42,7 +42,7 @@ Trước khi đi sâu hơn vào kiến trúc của Agent Teams, chúng ta cần 
 
 Cả hai tính năng đều liên quan đến "nhiều AI hợp tác", nhưng mô hình hợp tác của chúng hoàn toàn khác nhau và phù hợp với các kịch bản khác nhau.
 
-### So sánh cốt lõi一览
+### So sánh cốt lõi tổng quan
 
 | Tiêu chí | Subagent | Agent Teams |
 |---------|-------------------|----------------------|

@@ -2,7 +2,7 @@
 
 # 1. Was WeChat Mini Programs und Mini-Program-Entwicklung sind
 
-In diesem Tutorial werden wir einen vollständigen闭环 durchlaufen: von einer Idee in Ihrem Kopf zu einem echten Mini Program, das in WeChat per QR-Code gesucht und geöffnet werden kann.
+In diesem Tutorial werden wir einen vollständigen geschlossenen Kreislauf durchlaufen: von einer Idee in Ihrem Kopf zu einem echten Mini Program, das in WeChat per QR-Code gesucht und geöffnet werden kann.
 
 Bevor wir mit dem Bauen beginnen, müssen wir zwei grundlegende Verständnisse aufbauen.
 
@@ -247,7 +247,7 @@ Beispiele für das Endprodukt:
 
 ![](/zh-cn/stage-3/cross-platform/wechat-miniprogram/images/image22.png)![](/zh-cn/stage-3/cross-platform/wechat-miniprogram/images/image23.png)![](/zh-cn/stage-3/cross-platform/wechat-miniprogram/images/image24.png)
 
-In diesem Abschnitt haben Sie einen vollständigen闭环 gesehen:
+In diesem Abschnitt haben Sie einen vollständigen geschlossenen Kreislauf gesehen:
 
 1. In Trae ließ eine klare Anweisung KI die erste Snake-Mini-Program-Version bauen;
 2. Mit HBuilderX + WeChat DevTools den echten Effekt aus der Nutzerperspektive validieren;
@@ -262,7 +262,7 @@ In den vorherigen drei Kapiteln haben wir den vollständigen Ablauf von **Umgebu
 
 Ab diesem Kapitel wird die Schlüsselfrage: **Wie veröffentliche ich dieses Werk wirklich in WeChat, damit es nicht nur ein Spielzeug ist, sondern ein nutzbares Mini Program?**
 
-Um die Schwierigkeit zu reduzieren, nehmen wir zuerst den **kürzesten闭环**: nur als **Test-/Erfahrungsversion** für sich selbst und einige Teammitglieder veröffentlichen. Nachdem Funktion und Erlebnis stabil sind, dann zur formellen öffentlichen Veröffentlichung übergehen.
+Um die Schwierigkeit zu reduzieren, nehmen wir zuerst den **kürzesten geschlossenen Kreislauf**: nur als **Test-/Erfahrungsversion** für sich selbst und einige Teammitglieder veröffentlichen. Nachdem Funktion und Erlebnis stabil sind, dann zur formellen öffentlichen Veröffentlichung übergehen.
 
 Dieses Kapitel behandelt zuerst 4.1, um den kürzesten Pfad für den **Erfahrungsversions-Start** abzuschließen. Formelle Veröffentlichung für alle Nutzer wird in 4.2 erklärt.
 

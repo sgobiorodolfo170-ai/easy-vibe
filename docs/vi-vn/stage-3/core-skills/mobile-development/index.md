@@ -877,7 +877,7 @@ Các cách tiếp cận khác nhau tiêu thụ điện năng khác nhau:
 
 Không khuyến nghị. CPU và bộ nhớ điện thoại hạn chế và biên dịch lớn có thể gây ra:
 
--发热 đáng kể
+-phát nóng đáng kể
 - pin cạn nhanh
 - thời gian biên dịch rất lâu
 

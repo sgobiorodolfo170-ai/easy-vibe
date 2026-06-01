@@ -15,7 +15,7 @@
 
 ## 1.1 PWA의 정의
 
-**PWA(Progressive Web App)**는 특별한 종류의 웹사이트입니다. **Service Worker** 기술을 통해 "자신을 캐시하고接管하는" 능력을 얻습니다.
+**PWA(Progressive Web App)**는 특별한 종류의 웹사이트입니다. **Service Worker** 기술을 통해 "자신을 캐시하고 인수하는" 능력을 얻습니다.
 
 ### 일반 웹사이트는 오프라인에서 작동하지 않지만 PWA는 작동하는 이유
 

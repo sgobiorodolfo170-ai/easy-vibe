@@ -186,7 +186,7 @@ Thêm danh mục tác vụ
 **Đặc điểm dự án:**
 - Code đã ổn định, nhiệm vụ chính là sửa lỗi
 - Bạn cần định vị vấn đề nhanh chóng
-- Các thay đổi phải được thực hiện cẩn thận để tránh引入 vấn đề mới
+- Các thay đổi phải được thực hiện cẩn thận để tránh gây ra vấn đề mới
 
 **Quy trình làm việc được khuyến nghị:**
 
@@ -372,7 +372,7 @@ Sửa vấn đề này với các yêu cầu sau:
 **Bước 5: Xác minh bản sửa** (do bạn thực hiện)
 
 - Tái hiện vấn đề sử dụng các bước ban đầu và xác nhận vấn đề đã được giải quyết
-- Kiểm tra chức năng liên quan để đảm bảo không có vấn đề mới được引入
+- Kiểm tra chức năng liên quan để đảm bảo không có vấn đề mới được gây ra
 - Suy nghĩ xem có vấn đề tương tự tồn tại ở nơi khác không
 
 **Ví dụ hội thoại thực tế:**

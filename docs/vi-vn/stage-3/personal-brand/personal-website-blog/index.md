@@ -251,7 +251,7 @@ Sau khi đăng ký hoàn tất, bạn đã có một mảnh đất riêng trên 
 Mọi thứ đã sẵn sàng. Trong hai chương đầu, chúng ta đã chuẩn bị các công cụ. Trong chương này, chúng ta sẽ chính thức chiếm đất trên internet. Nhiệm vụ trong chương này rất đơn giản:
 **Đừng lo về trang trí hay nội dung. Trước tiên hãy xây dựng bộ khung trang và lấy liên kết truy cập trực tiếp.**
 
-Chúng ta sẽ fork trực tiếp một mẫu học thuật trưởng thành và sử dụng tự động hóa GitHub Pages để让它 chạy trong vòng hai mươi phút. Khi hoàn tất, bạn sẽ có một liên kết có thể truy cập toàn cầu.
+Chúng ta sẽ fork trực tiếp một mẫu học thuật trưởng thành và sử dụng tự động hóa GitHub Pages để nó chạy trong vòng hai mươi phút. Khi hoàn tất, bạn sẽ có một liên kết có thể truy cập toàn cầu.
 
 ## 3.1 Lấy mẫu trang web
 

@@ -81,7 +81,7 @@ Aufgrund von Netzwerkbeschraenkungen koennen Nutzer in Festlandchina moeglicherw
 **Sie haben zwei Optionen:**
 
 1. **API-Token direkt verwenden**: Kaufen Sie ein Token von einem Anbieter, der mit der Anthropic-API kompatibel ist, und konfigurieren Sie es mit Umgebungsvariablen
-2. **Codierungsplan verwenden**: Einige Anbieter bieten codierungsoptimierte Plaene, die fuer Codierungsszenarien通常 kostenguenstiger sind
+2. **Codierungsplan verwenden**: Einige Anbieter bieten codierungsoptimierte Plaene, die fuer Codierungsszenarien normalerweise kostenguenstiger sind
 
 **Empfohlener Ansatz**: Lassen Sie einen AI-Agenten Ihnen bei der Konfiguration helfen. Sie muessen nur die Anbieterkonfigurationsinformationen (API-Endpunkt, Schluessel usw.) bereitstellen, und die AI kann die Umgebungsvariablen korrekt setzen.
 

@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Các trợ lý lập trình AI truyền thống hoạt động theo chế độ "hội thoại": bạn nói một câu, nó trả lời một lần, sau đó dừng lại. Nhưng đối với các tác vụ phát triển thực tế, chế độ này là远远 không đủ.
+Các trợ lý lập trình AI truyền thống hoạt động theo chế độ "hội thoại": bạn nói một câu, nó trả lời một lần, sau đó dừng lại. Nhưng đối với các tác vụ phát triển thực tế, chế độ này là hoàn toàn không đủ.
 
 Hãy tưởng tượng các tình huống sau: bạn muốn Claude tái cấu trúc toàn bộ dự án, nhưng nó chỉ chỉnh sửa vài file rồi nói "xong"; bạn muốn Claude tiếp tục sửa lỗi cho đến khi tất cả test đều vượt qua, nhưng nó chỉ chạy một lần rồi dừng; bạn muốn Claude "làm việc qua đêm," nhưng sáng hôm sau bạn thấy nó đã dừng từ lâu.
 

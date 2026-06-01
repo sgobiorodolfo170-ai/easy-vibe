@@ -839,7 +839,7 @@ C'est exactement pourquoi le RAG est de plus en plus assigne au role de systeme 
 1. Capacite d'indexation structuree :
    Cela permet a l'agent de construire des index multi-dimensionnels sur de grandes quantites de donnees non structurees, par temps, sujet, relations d'entites, et plus encore, supportant une recherche efficace sous plusieurs angles, un peu comme les humains se souviennent des informations a travers differents indices.
 2. Oubli intelligent :
-   A travers des algorithmes d'evaluation de valeur, le systeme peut衰减 ou se debarasser selectivement des informations a faible frequence, faiblement liees ou obsoletes, gardant le systeme de memoire mince et efficace et evitant la surcharge.
+   A travers des algorithmes d'evaluation de valeur, le systeme peut décroître ou se debarasser selectivement des informations a faible frequence, faiblement liees ou obsoletes, gardant le systeme de memoire mince et efficace et evitant la surcharge.
 3. Consolidation des connaissances :
    Le systeme raffine l'experience de dialogue et d'interaction dispersee en connaissances structurees. A travers la reconnaissance d'entites, l'extraction de relations et le clustering semantique, les informations fragmentees sont connectees en graphes de connaissances, transformant l'experience a court terme en connaissances a long terme.
 

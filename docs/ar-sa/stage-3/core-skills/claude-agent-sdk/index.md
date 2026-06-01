@@ -204,7 +204,7 @@ asyncio.run(main())
 استخدم `allowed_tools` للتحكم في الأدوات التي يمكن للوكيل استخدامها:
 
 ```python
-# وكيل للقراءة فقط: يمكنه الفحص但不能 التعديل
+# وكيل للقراءة فقط: يمكنه الفحص ولكن لا يمكن التعديل
 options = ClaudeAgentOptions(
     allowed_tools=["Read", "Glob", "Grep"],
     permission_mode="bypassPermissions"

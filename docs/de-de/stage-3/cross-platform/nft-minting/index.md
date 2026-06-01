@@ -2,7 +2,7 @@
 
 # Kapitel 1: Was NFTs und Smart Contracts sind
 
-In diesem Tutorial werden wir einen vollständigen闭环 durchlaufen: von Grund auf einen NFT-Smart-Contract schreiben, ihn im Ethereum-Testnet bereitstellen, Ihr eigenes NFT prägen und es auf OpenSea ansehen. Der gesamte Prozess nutzt browserbasierte Tools, ohne dass eine lokale Umgebung eingerichtet werden muss, und kann in 10 Minuten abgeschlossen sein.
+In diesem Tutorial werden wir einen vollständigen geschlossenen Kreislauf durchlaufen: von Grund auf einen NFT-Smart-Contract schreiben, ihn im Ethereum-Testnet bereitstellen, Ihr eigenes NFT prägen und es auf OpenSea ansehen. Der gesamte Prozess nutzt browserbasierte Tools, ohne dass eine lokale Umgebung eingerichtet werden muss, und kann in 10 Minuten abgeschlossen sein.
 
 Für dieses Tutorial sollten Sie mindestens Folgendes haben:
 

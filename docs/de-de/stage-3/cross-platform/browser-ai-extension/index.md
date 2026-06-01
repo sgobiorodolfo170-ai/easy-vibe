@@ -2,7 +2,7 @@
 
 # Kapitel 1: Was Browser-Erweiterungen und Chrome-Extension-Entwicklung sind
 
-In diesem Tutorial werden wir einen vollständigen闭环 durchlaufen: eine KI-gesteuerte Chrome-Browser-Erweiterung von Grund auf bauen. Sie kann den Inhalt jeder Webseite lesen, die Sie gerade besuchen, und dann mit KI eine Ein-Klick-Zusammenfassung generieren. Sie werden die Extension-Entwicklung und das Debugging selbst abschließen und lernen, wie Sie sie im Chrome Web Store veröffentlichen.
+In diesem Tutorial werden wir einen vollständigen geschlossenen Kreislauf durchlaufen: eine KI-gesteuerte Chrome-Browser-Erweiterung von Grund auf bauen. Sie kann den Inhalt jeder Webseite lesen, die Sie gerade besuchen, und dann mit KI eine Ein-Klick-Zusammenfassung generieren. Sie werden die Extension-Entwicklung und das Debugging selbst abschließen und lernen, wie Sie sie im Chrome Web Store veröffentlichen.
 
 Für dieses Tutorial sollten Sie mindestens Folgendes haben:
 
