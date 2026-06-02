@@ -133,6 +133,11 @@
     description="데이터 추적을 과학적으로 설계하여 제품 의사결정에 데이터 지원을 제공합니다"
   />
   <NavCard
+    href="/ko-kr/appendix/5-data/data-visualization"
+    title="데이터 시각화와 대시보드"
+    description="올바른 차트를 선택하고 대시보드를 설계하며 오해를 부르는 시각화 함정을 피하는 방법"
+  />
+  <NavCard
     href="/ko-kr/appendix/operations"
     title="온라인 운영"
     description="시스템 배포, 모니터링 및 장애 해결의 운영 기술을 마스터합니다"

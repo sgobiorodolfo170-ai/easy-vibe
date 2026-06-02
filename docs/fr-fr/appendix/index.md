@@ -133,6 +133,11 @@ Maîtriser les concepts clés du développement backend :
     description="Concevoir scientifiquement le suivi des données pour fournir un support de données pour les décisions produit"
   />
   <NavCard
+    href="/fr-fr/appendix/5-data/data-visualization"
+    title="Visualisation de données et tableaux de bord"
+    description="Choisir les bons graphiques, concevoir des tableaux de bord et éviter les pièges de visualisation trompeurs"
+  />
+  <NavCard
     href="/fr-fr/appendix/operations"
     title="Opérations en ligne"
     description="Maîtriser les compétences opérationnelles pour le déploiement, la surveillance et le dépannage du système"

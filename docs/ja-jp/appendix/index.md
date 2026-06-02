@@ -133,6 +133,11 @@
     description="科学的にデータトラッキングを設計し、プロダクト意思決定にデータサポートを提供する"
   />
   <NavCard
+    href="/ja-jp/appendix/5-data/data-visualization"
+    title="データ可視化とダッシュボード"
+    description="適切なグラフを選び、ダッシュボードを設計し、誤解を招く可視化の落とし穴を避ける"
+  />
+  <NavCard
     href="/ja-jp/appendix/operations"
     title="オンライン運用"
     description="システムデプロイメント、モニタリング、トラブルシューティングの運用スキルをマスターする"

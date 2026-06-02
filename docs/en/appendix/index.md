@@ -133,6 +133,11 @@ Master the core concepts of backend development:
     description="Scientifically design data tracking to provide data support for product decisions"
   />
   <NavCard
+    href="/en/appendix/5-data/data-visualization"
+    title="Data Visualization and Dashboards"
+    description="Choose the right charts, design dashboards, and avoid misleading visualization traps"
+  />
+  <NavCard
     href="/zh-cn/appendix/operations"
     title="Online Operations"
     description="Master operations skills for system deployment, monitoring, and troubleshooting"

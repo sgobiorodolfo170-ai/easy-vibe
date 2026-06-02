@@ -133,6 +133,11 @@ Thành thạo các khái niệm cốt lõi của phát triển backend:
     description="Thiết kế theo dõi dữ liệu một cách khoa học để cung cấp hỗ trợ dữ liệu cho quyết định sản phẩm"
   />
   <NavCard
+    href="/vi-vn/appendix/5-data/data-visualization"
+    title="Trực quan hóa Dữ liệu và Bảng điều khiển"
+    description="Chọn biểu đồ phù hợp, thiết kế dashboard và tránh các bẫy trực quan hóa gây hiểu nhầm"
+  />
+  <NavCard
     href="/vi-vn/appendix/operations"
     title="Vận hành Trực tuyến"
     description="Thành thạo các kỹ năng vận hành cho việc triển khai, giám sát và khắc phục sự cố hệ thống"

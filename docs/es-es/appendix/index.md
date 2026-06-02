@@ -133,6 +133,11 @@ Domina los conceptos centrales del desarrollo backend:
     description="Diseña científicamente el seguimiento de datos para proporcionar soporte de datos para la toma de decisiones de productos"
   />
   <NavCard
+    href="/es-es/appendix/5-data/data-visualization"
+    title="Visualización de Datos y Dashboards"
+    description="Elegir los gráficos adecuados, diseñar dashboards y evitar trampas de visualización engañosas"
+  />
+  <NavCard
     href="/es-es/appendix/operations"
     title="Operaciones en línea"
     description="Domina habilidades de operaciones para el despliegue, monitoreo y solución de problemas del sistema"

@@ -133,6 +133,11 @@
     description="科學設計數據埋點，為產品決策提供數據支持"
   />
   <NavCard
+    href="/zh-tw/appendix/5-data/data-visualization"
+    title="資料視覺化與儀表板"
+    description="選對圖表、設計儀表板，並避開容易誤導讀者的視覺化陷阱"
+  />
+  <NavCard
     href="/zh-tw/appendix/operations"
     title="線上運維"
     description="掌握系統部署、監控與故障排查的運維技能"

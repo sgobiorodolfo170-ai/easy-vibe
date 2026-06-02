@@ -133,6 +133,11 @@ Beherrsche die Kernkonzepte der Backend-Entwicklung:
     description="Entwerfe Daten-Tracking wissenschaftlich, um Datenunterstützung für Produktentscheidungen zu bieten"
   />
   <NavCard
+    href="/de-de/appendix/5-data/data-visualization"
+    title="Datenvisualisierung und Dashboards"
+    description="Wähle passende Diagramme, gestalte Dashboards und vermeide irreführende Visualisierungsfallen"
+  />
+  <NavCard
     href="/de-de/appendix/operations"
     title="Online-Betrieb"
     description="Beherrsche Betriebsfähigkeiten für Systembereitstellung, Überwachung und Fehlerbehebung"
