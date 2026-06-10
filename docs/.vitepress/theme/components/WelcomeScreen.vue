@@ -1,9 +1,8 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from 'vue'
-import { useRouter, withBase } from 'vitepress'
+import { withBase } from 'vitepress'
 import easyVibePaths from '../data/easyVibePaths.json'
 
-const router = useRouter()
 const WELCOME_SEEN_KEY = 'easy-vibe-welcome-seen'
 const phase = ref('reset')
 const theme = ref('ocean')
@@ -43,15 +42,28 @@ const runLoop = () => {
   timers.push(setTimeout(run, 80))
 }
 
+const resolveInternalTarget = (targetPath) => {
+  const fallback = withBase('/')
+  if (!targetPath) return fallback
+
+  try {
+    const url = new URL(targetPath, window.location.origin)
+    const basePath = withBase('/')
+
+    if (url.origin !== window.location.origin) return fallback
+    if (!url.pathname.startsWith(basePath)) return fallback
+
+    return `${url.pathname}${url.search}${url.hash}`
+  } catch {
+    return fallback
+  }
+}
+
 const enterHome = () => {
   const params = new URLSearchParams(window.location.search)
-  const nextPath = params.get('next')
+  const nextPath = resolveInternalTarget(params.get('next'))
   window.localStorage.setItem(WELCOME_SEEN_KEY, '1')
-  if (nextPath) {
-    router.go(nextPath)
-    return
-  }
-  router.go(withBase('/'))
+  window.location.replace(nextPath)
 }
 
 onMounted(() => {
