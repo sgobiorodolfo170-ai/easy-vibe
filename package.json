@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "npm run sitemap && node --max-old-space-size=8192 node_modules/vitepress/bin/vitepress.js build docs",
-    "build:force": "npm run sitemap && node --max-old-space-size=8192 node_modules/vitepress/bin/vitepress.js build docs --force",
+    "build": "node scripts/build-locales.mjs",
+    "build:locales": "node scripts/build-locales.mjs",
+    "build:single": "npm run sitemap && node --max-old-space-size=8192 node_modules/vitepress/bin/vitepress.js build docs",
+    "build:force": "node scripts/build-locales.mjs --force",
+    "build:single:force": "npm run sitemap && node --max-old-space-size=8192 node_modules/vitepress/bin/vitepress.js build docs --force",
     "preview": "vitepress preview docs",
     "test": "node --test $(find docs scripts -name '*.test.js' -print)",
     "test:coverage": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 $(find docs scripts -name '*.test.js' -print)",

@@ -92,6 +92,44 @@ const localeMap = {
   }
 }
 
+const buildLocale = process.env.VITEPRESS_BUILD_LOCALE
+const activeBuildLocales = (
+  process.env.VITEPRESS_BUILD_LOCALES_ACTIVE ||
+  buildLocale ||
+  ''
+)
+  .split(',')
+  .map((locale) => locale.trim())
+  .filter(Boolean)
+const supportedLocaleDirs = Object.keys(localeMap)
+const activeSupportedBuildLocales = activeBuildLocales.filter((locale) =>
+  supportedLocaleDirs.includes(locale)
+)
+const localeBuildExcludes = activeSupportedBuildLocales.length
+  ? supportedLocaleDirs
+      .filter((locale) => !activeSupportedBuildLocales.includes(locale))
+      .map((locale) => `${locale}/**`)
+  : []
+const srcExclude = ['plans/**', ...localeBuildExcludes]
+const buildConcurrency = Number.parseInt(
+  process.env.VITEPRESS_BUILD_CONCURRENCY || '',
+  10
+)
+
+if (buildLocale && !supportedLocaleDirs.includes(buildLocale)) {
+  console.warn(
+    `Unsupported VITEPRESS_BUILD_LOCALE=${buildLocale}. Building all locales.`
+  )
+}
+
+for (const locale of activeBuildLocales) {
+  if (!supportedLocaleDirs.includes(locale)) {
+    console.warn(
+      `Unsupported active build locale=${locale}. Ignoring it for srcExclude.`
+    )
+  }
+}
+
 // SEO 相关配置
 const getSeoHead = (locale, title, description, path = '') => {
   const seoConfig = localeMap[locale] || localeMap['zh-cn']
@@ -306,9 +344,7 @@ const commonHead = [
 const commonThemeConfig = {
   logo: '/assets/easy-vibe-logo-hd.svg',
   siteTitle: false,
-  search: {
-    provider: 'local'
-  },
+  search: false,
   // socialLinks: [
   //   { icon: 'github', link: 'https://github.com/datawhalechina/easy-vibe' }
   // ],
@@ -922,30 +958,6 @@ const appendixSidebarEn = [
       {
         text: 'Type Systems Intro',
         link: '/zh-cn/appendix/1-computer-fundamentals/type-systems'
-      },
-      {
-        text: 'Linking & Loading',
-        link: '/zh-cn/appendix/1-computer-fundamentals/linking-loading'
-      },
-      {
-        text: 'Assembly Basics',
-        link: '/zh-cn/appendix/1-computer-fundamentals/assembly-basics'
-      },
-      {
-        text: 'Memory Hierarchy',
-        link: '/zh-cn/appendix/1-computer-fundamentals/memory-hierarchy'
-      },
-      {
-        text: 'Processor Architecture',
-        link: '/zh-cn/appendix/1-computer-fundamentals/processor-architecture'
-      },
-      {
-        text: 'System I/O',
-        link: '/zh-cn/appendix/1-computer-fundamentals/system-io'
-      },
-      {
-        text: 'Socket Programming',
-        link: '/zh-cn/appendix/1-computer-fundamentals/socket-programming'
       }
     ]
   },
@@ -983,7 +995,7 @@ const appendixSidebarEn = [
       },
       {
         text: 'Art of Debugging',
-        link: '/zh-cn/appendix/2-development-tools/debugging-art/'
+        link: '/zh-cn/appendix/2-development-tools/debugging-art'
       },
       {
         text: 'Regex',
@@ -1006,10 +1018,6 @@ const appendixSidebarEn = [
       {
         text: 'Frontend Frameworks',
         link: '/zh-cn/appendix/3-browser-and-frontend/frontend-frameworks'
-      },
-      {
-        text: 'Browser as OS',
-        link: '/zh-cn/appendix/3-browser-and-frontend/browser-as-os'
       },
       {
         text: 'Rendering Pipeline',
@@ -2619,6 +2627,10 @@ const docFooterLabels = {
 }
 
 export default defineConfig({
+  srcExclude,
+  ...(Number.isFinite(buildConcurrency) && buildConcurrency > 0
+    ? { buildConcurrency }
+    : {}),
   markdown: {
     config: (md) => {
       md.use(markdownItKatex)
@@ -2701,33 +2713,47 @@ Sitemap: ${siteUrl}/sitemap.xml
       `${siteUrl}/sitemap.xml`
     )
 
-    // Copy all .md files to dist for download/copy features
-    const srcDir = siteConfig.srcDir || path.resolve(outDir, '../../')
-    function copyMdFiles(src, dest) {
-      if (!fs.existsSync(dest)) {
-        fs.mkdirSync(dest, { recursive: true })
-      }
-      const entries = fs.readdirSync(src, { withFileTypes: true })
-      for (const entry of entries) {
-        const srcPath = path.join(src, entry.name)
-        const destPath = path.join(dest, entry.name)
-        if (entry.isDirectory()) {
-          if (
-            entry.name === '.vitepress' ||
-            entry.name === 'public' ||
-            entry.name === 'node_modules'
-          )
-            continue
-          copyMdFiles(srcPath, destPath)
-        } else if (entry.isFile() && entry.name.endsWith('.md')) {
-          fs.copyFileSync(srcPath, destPath)
+    if (process.env.COPY_MD_TO_DIST !== '0') {
+      // Copy all .md files to dist for download/copy features.
+      const srcDir = siteConfig.srcDir || path.resolve(outDir, '../../')
+      function copyMdFiles(src, dest, isRoot = false) {
+        if (!fs.existsSync(dest)) {
+          fs.mkdirSync(dest, { recursive: true })
+        }
+        const entries = fs.readdirSync(src, { withFileTypes: true })
+        for (const entry of entries) {
+          const srcPath = path.join(src, entry.name)
+          const destPath = path.join(dest, entry.name)
+          if (entry.isDirectory()) {
+            if (
+              entry.name === '.vitepress' ||
+              entry.name === 'public' ||
+              entry.name === 'node_modules'
+            )
+              continue
+            if (
+              isRoot &&
+              activeSupportedBuildLocales.length &&
+              supportedLocaleDirs.includes(entry.name) &&
+              !activeSupportedBuildLocales.includes(entry.name)
+            ) {
+              continue
+            }
+            copyMdFiles(srcPath, destPath)
+          } else if (entry.isFile() && entry.name.endsWith('.md')) {
+            fs.copyFileSync(srcPath, destPath)
+          }
         }
       }
+      console.log(
+        '✓ Copying markdown files to output directory for download feature...'
+      )
+      copyMdFiles(srcDir, outDir, true)
+    } else {
+      console.log(
+        '✓ Skipped markdown copy to output directory because COPY_MD_TO_DIST=0.'
+      )
     }
-    console.log(
-      '✓ Copying markdown files to output directory for download feature...'
-    )
-    copyMdFiles(srcDir, outDir)
   },
 
   // 多语言配置 - 使用 cn/en-us/ja 结构
@@ -2985,7 +3011,7 @@ Sitemap: ${siteUrl}/sitemap.xml
                 },
                 {
                   text: '调试的艺术',
-                  link: '/zh-cn/appendix/2-development-tools/debugging-art/'
+                  link: '/zh-cn/appendix/2-development-tools/debugging-art'
                 },
                 {
                   text: '正则表达式',
@@ -3008,10 +3034,6 @@ Sitemap: ${siteUrl}/sitemap.xml
                 {
                   text: '前端框架对比（React / Vue / Svelte / Angular）',
                   link: '/zh-cn/appendix/3-browser-and-frontend/frontend-frameworks'
-                },
-                {
-                  text: '浏览器是一个操作系统',
-                  link: '/zh-cn/appendix/3-browser-and-frontend/browser-as-os'
                 },
                 {
                   text: '浏览器渲染管道',
@@ -3505,8 +3527,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: '付録',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/ja-jp/appendix/',
+            activeMatch: '/ja-jp/appendix/'
           }
         ],
         sidebar: {
@@ -3560,8 +3582,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: '附錄',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/zh-tw/appendix/',
+            activeMatch: '/zh-tw/appendix/'
           }
         ],
         sidebar: {
@@ -3670,8 +3692,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: 'Apéndice',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/es-es/appendix/',
+            activeMatch: '/es-es/appendix/'
           }
         ],
         sidebar: {
@@ -3725,8 +3747,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: 'Annexe',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/fr-fr/appendix/',
+            activeMatch: '/fr-fr/appendix/'
           }
         ],
         sidebar: {
@@ -3780,8 +3802,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: 'Anhang',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/de-de/appendix/',
+            activeMatch: '/de-de/appendix/'
           }
         ],
         sidebar: {
@@ -3835,8 +3857,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: 'ملحق',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/ar-sa/appendix/',
+            activeMatch: '/ar-sa/appendix/'
           }
         ],
         sidebar: {
@@ -3891,8 +3913,8 @@ Sitemap: ${siteUrl}/sitemap.xml
           },
           {
             text: 'Phụ lục',
-            link: '/zh-cn/appendix/',
-            activeMatch: '/zh-cn/appendix/'
+            link: '/vi-vn/appendix/',
+            activeMatch: '/vi-vn/appendix/'
           }
         ],
         sidebar: {

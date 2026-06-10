@@ -2,7 +2,9 @@
 node_modules
 tools/*
 docs/.vitepress/dist
+docs/.vitepress/dist-locales/
 docs/.vitepress/cache
+docs/plans/
 temp/*
 docs/zh-cn/appendix-old-backup*/
 docs/zh-cn/appendix-dirs-backup*/

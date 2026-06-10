@@ -108,7 +108,7 @@
     description="npm、pip、cargo——依赖管理的艺术"
   />
 <NavCard
-    href="/zh-cn/appendix/2-development-tools/debugging-art/"
+    href="/zh-cn/appendix/2-development-tools/debugging-art"
     title="调试的艺术"
     description="断点调试、日志分析、问题定位方法论"
   />

@@ -171,7 +171,7 @@ onMounted(() => {
       }
     }
   }
-  
+
   openTarget()
   window.addEventListener('hashchange', openTarget)
 })
@@ -181,9 +181,9 @@ onMounted(() => {
 
 To help everyone understand the meaning of each option, here we provide an in-depth analysis of the menu bar:
 
-![](editors-and-ai/images/index-2026-01-09-11-35-55.png)
+![](../../../zh-cn/appendix/2-development-tools/editors-and-ai/images/index-2026-01-09-11-35-55.png)
 
-![](editors-and-ai/images/index-2026-01-09-11-36-23.png)
+![](../../../zh-cn/appendix/2-development-tools/editors-and-ai/images/index-2026-01-09-11-36-23.png)
 
 <details class="custom-block details" id="vscode-file-menu">
   <summary>File: Project and File Open/Save/Workspace Management</summary>

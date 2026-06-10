@@ -37,7 +37,7 @@ const categories = [
       { title: 'Git 版本控制', path: '/zh-cn/appendix/2-development-tools/git-version-control', description: '版本控制与团队协作', detail: '从 init 到 rebase，系统掌握 Git 的分支模型、合并策略、冲突解决，理解团队协作中的 Git 工作流。' },
       { title: '环境变量与 PATH', path: '/zh-cn/appendix/2-development-tools/environment-path', description: '系统环境配置与问题排查', detail: '理解 PATH 的查找机制、环境变量的作用域，学会排查「命令找不到」「版本不对」等常见开发环境问题。' },
       { title: '包管理器', path: '/zh-cn/appendix/2-development-tools/package-managers', description: 'npm、pip、cargo 依赖管理', detail: '了解包管理器如何解决依赖地狱问题，掌握 npm、pip、cargo 等工具的使用方式和 lock 文件的意义。' },
-      { title: '调试的艺术', path: '/zh-cn/appendix/2-development-tools/debugging-art/', description: '断点调试与问题定位', detail: '从 console.log 到断点调试，掌握系统化的问题定位方法论，学会用 DevTools、日志分析快速找到 Bug 根因。' }
+      { title: '调试的艺术', path: '/zh-cn/appendix/2-development-tools/debugging-art', description: '断点调试与问题定位', detail: '从 console.log 到断点调试，掌握系统化的问题定位方法论，学会用 DevTools、日志分析快速找到 Bug 根因。' }
     ]
   },
   {

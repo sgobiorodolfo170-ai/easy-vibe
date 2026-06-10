@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref, computed } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { useData } from 'vitepress'
 
 import iconChatGPT from './icons/chatgpt.svg?raw'
@@ -66,11 +66,46 @@ import { downloadFile } from './utils'
 
 const { page, site } = useData()
 
-const getMarkdownUrl = () => {
+const rawRepositoryBaseUrl =
+	'https://raw.githubusercontent.com/datawhalechina/easy-vibe/main/docs/'
+
+const encodeMarkdownPath = (filePath) =>
+	filePath.split('/').map(encodeURIComponent).join('/')
+
+const getLocalMarkdownUrl = () => {
 	const origin = window.location.origin
 	let base = site.value.base || '/'
 	if (!base.endsWith('/')) base += '/'
 	return `${origin}${base}${page.value.filePath}`
+}
+
+const getRemoteMarkdownUrl = () =>
+	`${rawRepositoryBaseUrl}${encodeMarkdownPath(page.value.filePath)}`
+
+const isHtmlFallback = (text) => /^\s*(<!doctype html|<html[\s>])/i.test(text)
+
+async function fetchMarkdownText() {
+	const urls = [getLocalMarkdownUrl(), getRemoteMarkdownUrl()]
+	let lastError
+
+	for (const url of urls) {
+		try {
+			const response = await fetch(url)
+			if (!response.ok) {
+				throw new Error(`Markdown request failed: ${response.status} ${url}`)
+			}
+			const text = await response.text()
+			const contentType = response.headers.get('content-type') || ''
+			if (contentType.includes('text/html') && isHtmlFallback(text)) {
+				throw new Error(`Markdown request returned HTML fallback: ${url}`)
+			}
+			return text
+		} catch (error) {
+			lastError = error
+		}
+	}
+
+	throw lastError || new Error('Unable to load markdown source')
 }
 
 const aiProviders = [
@@ -108,45 +143,44 @@ function toggleDropdown() {
 	}
 }
 
-function copyAsMarkdown() {
-	fetch(getMarkdownUrl())
-		.then((r) => r.text())
-		.then((text) => navigator.clipboard.writeText(text))
-		.then(() => {
-			copied.value = true
-			setTimeout(() => {
-				copied.value = false
-			}, 2000)
-		})
-		.catch((e) => console.error('❌ Error:', e))
-
+async function copyAsMarkdown() {
 	isOpen.value = false
+	try {
+		const text = await fetchMarkdownText()
+		await navigator.clipboard.writeText(text)
+		copied.value = true
+		setTimeout(() => {
+			copied.value = false
+		}, 2000)
+	} catch (e) {
+		console.error('❌ Error:', e)
+	}
 }
 
 function viewAsMarkdown() {
-	window.open(getMarkdownUrl(), '_blank')
+	window.open(getRemoteMarkdownUrl(), '_blank')
 	isOpen.value = false
 }
 
 function openInAI(provider) {
-	const markdownUrl = getMarkdownUrl()
+	const markdownUrl = getRemoteMarkdownUrl()
 	const prompt = `Read from ${markdownUrl} so I can ask questions about it.`
 	window.open(provider.url + encodeURIComponent(prompt), '_blank')
 	isOpen.value = false
 }
 
-function downloadMarkdown() {
-	fetch(getMarkdownUrl())
-		.then((r) => r.text())
-		.then((text) => {
-			const filename = page.value.filePath.split('/').pop() || 'page.md'
-			downloadFile(filename, text, 'text/markdown')
-			downloaded.value = true
-			setTimeout(() => {
-				downloaded.value = false
-			}, 2000)
-		})
-		.catch((e) => console.error('❌ Error:', e))
+async function downloadMarkdown() {
+	try {
+		const text = await fetchMarkdownText()
+		const filename = page.value.filePath.split('/').pop() || 'page.md'
+		downloadFile(filename, text, 'text/markdown')
+		downloaded.value = true
+		setTimeout(() => {
+			downloaded.value = false
+		}, 2000)
+	} catch (e) {
+		console.error('❌ Error:', e)
+	}
 }
 
 function handleClickOutside(event) {
@@ -345,4 +379,3 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 	}
 }
 </style>
-
