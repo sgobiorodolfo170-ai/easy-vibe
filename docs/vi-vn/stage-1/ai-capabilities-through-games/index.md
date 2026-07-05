@@ -1,183 +1,183 @@
-# So cap 1: Thoi dai AI, biet noi la biet lap trinh
+# Sơ cấp 1: Thời đại AI, biết nói là biết lập trình
 
-Day la mot bai hoc **hoc theo du an**. Ban hay lam theo tung buoc va co gang tai hien ket qua.
-Dung lo sai hay sua. Hay nho:
+Đây là một bài học **học theo dự án**. Bạn hãy làm theo từng bước và cố gắng tái hiện kết quả.
+Đừng lo sai hay sửa. Hãy nhớ:
 
 <div style="text-align: center;">
 <div style="display: inline-block; padding: 8px 20px; border-radius: 8px; border: 1px dashed #FFB6C1; background: linear-gradient(135deg, #FFF0F5 0%, #FFE4EC 100%); margin: 12px 0;">
-  <span style="font-size: 15px; font-weight: 500; color: #666;">Hoan thanh quan trong hon hoan hao</span>
+  <span style="font-size: 15px; font-weight: 500; color: #666;">Hoàn thành quan trọng hơn hoàn hảo</span>
 </div>
 </div>
 
 <script setup>
 import { relatedArticlesMap } from '@theme/data/relatedArticles'
 
-const duration = 'khoang <strong>4 gio</strong> (co the chia nhieu lan)'
+const duration = 'khoảng <strong>4 giờ</strong> (có thể chia nhiều lần)'
 const relatedArticles =
   relatedArticlesMap['vi-vn/stage-1/ai-capabilities-through-games'] ?? []
 </script>
 
-## Dan nhap chuong
+## Dẫn nhập chương
 
-<ChapterIntroduction :duration="duration" :tags="['Lap trinh doi thoai', 'Mini game AI-native', 'Thuc hanh Snake']" coreOutput="Snake AI-native + mini game tu tao" expectedOutput="1 Snake AI-native chay duoc + (tuy chon) 1 mini game/demo tu tao">
+<ChapterIntroduction :duration="duration" :tags="['Lập trình đối thoại', 'Mini game AI-native', 'Thực hành Snake']" coreOutput="Snake AI-native + mini game tự tạo" expectedOutput="1 Snake AI-native chạy được + (tùy chọn) 1 mini game/demo tự tạo">
 
-Neu ban <strong>hoan toan khong biet lap trinh</strong> hoac chi biet mot chut, chuong nay danh cho ban. Ta se bat dau tu co ban: dung <strong>doi thoai</strong> de AI giup ban viet code. Khong can nho cu phap, khong can cau hinh phuc tap, nhieu truong hop co the chay ngay tren web.
+Nếu bạn <strong>hoàn toàn không biết lập trình</strong> hoặc chỉ biết một chút, chương này dành cho bạn. Ta sẽ bắt đầu từ cơ bản: dùng <strong>đối thoại</strong> để AI giúp bạn viết code. Không cần nhớ cú pháp, không cần cấu hình phức tạp, nhiều trường hợp có thể chạy ngay trên web.
 
-Ban se tu tay lam ra <strong>chuong trinh dau tien chay duoc</strong>: mot phien ban Snake co the "an tu", "viet tho", "ve ve". Ban se cam nhan lap trinh voi AI la gi: khong phai AI nghi thay ban, ma ban noi ro y muon, AI giup ban hien thuc.
+Bạn sẽ tự tay làm ra <strong>chương trình đầu tiên chạy được</strong>: một phiên bản Snake có thể "ăn từ", "viết thơ", "vẽ vẽ". Bạn sẽ cảm nhận lập trình với AI là gì: không phải AI nghĩ thay bạn, mà bạn nói rõ ý muốn, AI giúp bạn hiện thực.
 
 </ChapterIntroduction>
 
 <div style="margin: 50px 0;">
   <ClientOnly>
     <StepBar :active="0" :items="[
-      { title: 'Khoi dong', description: 'Thoi dai AI: biet noi la biet lap trinh' },
-      { title: 'Kham pha nhanh', description: 'Trai nghiem 60 giay' },
-      { title: 'Thuc hanh AI-native', description: 'Xay Snake AI-native' },
-      { title: 'Mo rong sang tao', description: 'Tu lam mot game khac' }
+      { title: 'Khởi động', description: 'Thời đại AI: biết nói là biết lập trình' },
+      { title: 'Khám phá nhanh', description: 'Trải nghiệm 60 giây' },
+      { title: 'Thực hành AI-native', description: 'Xây Snake AI-native' },
+      { title: 'Mở rộng sáng tạo', description: 'Tự làm một game khác' }
     ]" />
   </ClientOnly>
 </div>
 
-## 1. Kho khan cua nguoi binh thuong va co hoi moi
+## 1. Khó khăn của người bình thường và cơ hội mới
 
-Rat nhieu nguoi co y tuong san pham: cong cu ghi chep chi tieu, mot trang web ghi lai qua trinh lon len cua con, hoac mot mini game. Nhung chi can nghi toi "viet code" va "tim lap trinh vien" la thay met.
+Rất nhiều người có ý tưởng sản phẩm: công cụ ghi chép chi tiêu, một trang web ghi lại quá trình lớn lên của con, hoặc một mini game. Nhưng chỉ cần nghĩ tới "viết code" và "tìm lập trình viên" là thấy mệt.
 
-AI tao ra mot kha nang moi: ban khong nhat thiet phai biet code ngay lap tuc; ban can hoc cach noi ro rang voi AI ve dieu ban muon. Ke ca voi lap trinh vien chuyen nghiep, AI dang dan tro thanh mot phan cua quy trinh lam viec. Voi nguoi moi, kha nang "giao tiep dung voi agent" la cuc ky co gia tri.
+AI tạo ra một khả năng mới: bạn không nhất thiết phải biết code ngay lập tức; bạn cần học cách nói rõ ràng với AI về điều bạn muốn. Kể cả với lập trình viên chuyên nghiệp, AI đang dần trở thành một phần của quy trình làm việc. Với người mới, khả năng "giao tiếp đúng với agent" là cực kỳ có giá trị.
 
-Muc tieu cua bai hoc la giup ban hinh thanh ky nang moi: <strong>dung ngon ngu tu nhien de lam ung dung</strong>. Ban se hoc cach mo ta muc tieu, chia buoc, xac dinh dau vao/dau ra, va sua loi khi ket qua chua dung y.
+Mục tiêu của bài học là giúp bạn hình thành kỹ năng mới: <strong>dùng ngôn ngữ tự nhiên để làm ứng dụng</strong>. Bạn sẽ học cách mô tả mục tiêu, chia bước, xác định đầu vào/đầu ra, và sửa lỗi khi kết quả chưa đúng ý.
 
 <div style="margin: 50px 0;">
   <ClientOnly>
     <StepBar :active="1" :items="[
-      { title: 'Kho khan va co hoi', description: 'Mot cach moi de tao san pham' },
-      { title: 'Kham pha nhanh', description: 'Trai nghiem 60 giay' },
-      { title: 'Thuc hanh AI-native', description: 'Xay Snake AI-native' },
-      { title: 'Mo rong sang tao', description: 'Tu lam mot game khac' }
+      { title: 'Khó khăn và cơ hội', description: 'Một cách mới để tạo sản phẩm' },
+      { title: 'Khám phá nhanh', description: 'Trải nghiệm 60 giây' },
+      { title: 'Thực hành AI-native', description: 'Xây Snake AI-native' },
+      { title: 'Mở rộng sáng tạo', description: 'Tự làm một game khác' }
     ]" />
   </ClientOnly>
 </div>
 
-## 2. AI co the lam duoc toi muc nao hien nay
+## 2. AI có thể làm được tới mức nào hiện nay
 
-Cau hoi cu the: neu ban khong biet viet code, ban co the lam duoc toi muc nao voi AI doi thoai?
+Câu hỏi cụ thể: nếu bạn không biết viết code, bạn có thể làm được tới mức nào với AI đối thoại?
 
-Thuc te, hien nay AI rat hop de:
+Thực tế, hiện nay AI rất hợp để:
 
-- cong cu noi bo nho,
-- bang dieu khien/truc quan du lieu,
-- mini game nhe,
-- prototype de kiem chung y tuong tu goc nhin san pham.
+- công cụ nội bộ nhỏ,
+- bảng điều khiển/trực quan dữ liệu,
+- mini game nhẹ,
+- prototype để kiểm chứng ý tưởng từ góc nhìn sản phẩm.
 
-Voi san pham lon va dua vao san xuat, van can con nguoi dau tu vao thiet ke luong, chi tiet, bao mat, hieu nang va kha nang bao tri. Nhưng doi voi prototype va cong cu tu dung, chat luong da rat thuc dung.
+Với sản phẩm lớn và đưa vào sản xuất, vẫn cần con người đầu tư vào thiết kế luồng, chi tiết, bảo mật, hiệu năng và khả năng bảo trì. Nhưng đối với prototype và công cụ tự dùng, chất lượng đã rất thực dụng.
 
-### 2.1 Lam Snake trong 60 giay (voi z.ai)
+### 2.1 Làm Snake trong 60 giây (với z.ai)
 
-Mo trang web thuc hanh cua khoa hoc: [z.ai](https://chat.z.ai/). Trong bai nay, ta dung che do "phat trien full-stack" de xem AI tao du an va xem truoc ket qua.
+Mở trang web thực hành của khóa học: [z.ai](https://chat.z.ai/). Trong bài này, ta dùng chế độ "phát triển full-stack" để xem AI tạo dự án và xem trước kết quả.
 
-::: details Lap trinh ngay tren web la gi?
+::: details Lập trình ngay trên web là gì?
 
-Truoc day, lam mot app web thuong can:
+Trước đây, làm một app web thường cần:
 
-- cai moi truong (Node.js, Python),
-- cau hinh editor,
-- hoc HTML/CSS/JavaScript,
-- xu ly dependency va loi.
+- cài môi trường (Node.js, Python),
+- cấu hình editor,
+- học HTML/CSS/JavaScript,
+- xử lý dependency và lỗi.
 
-Gio day, voi nen tang lap trinh AI:
+Giờ đây, với nền tảng lập trình AI:
 
-- mo trinh duyet,
-- mo ta tinh nang bang ngon ngu tu nhien,
-- AI tu dong sinh code va xem truoc.
+- mở trình duyệt,
+- mô tả tính năng bằng ngôn ngữ tự nhiên,
+- AI tự động sinh code và xem trước.
 
-No chuyen trong tam tu "viet cu phap" sang "mo ta yeu cau".
+Nó chuyển trọng tâm từ "viết cú pháp" sang "mô tả yêu cầu".
 
 :::
 
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/index-2026-01-07-18-25-03.png)
 
-Dan yeu cau don gian nhu sau va chay:
+Đánh yêu cầu đơn giản như sau và chạy:
 
 ```txt
-Lam giup toi game Snake:
-1. Dieu khien bang phim mui ten
-2. An thuc an thi dai ra va tang diem
-3. Cham tuong hoac cham than thi Game Over
-4. Co nut bat dau va choi lai
-5. Giao dien gon va dep
+Làm giúp tôi game Snake:
+1. Điều khiển bằng phím mũi tên
+2. Ăn thức ăn thì dài ra và tăng điểm
+3. Chạm tường hoặc chạm thân thì Game Over
+4. Có nút bắt đầu và chơi lại
+5. Giao diện gọn và đẹp
 ```
 
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/index-2026-01-07-18-34-03.png)
 
-Khi xong, ban se thay trang web o ben phai. Thuong ban co the:
+Khi xong, bạn sẽ thấy trang web ở bên phải. Thường bạn có thể:
 
-- cuon de xem,
-- vao full-screen,
-- tai du an,
+- cuộn để xem,
+- vào full-screen,
+- tải dự án,
 - xem code.
 
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/index-2026-01-07-18-35-11.png)
 
-De xem ma nguon, bam vao bieu tuong code o goc tren ben phai.
+Để xem mã nguồn, bấm vào biểu tượng code ở góc trên bên phải.
 
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/image7.png)
 
-::: tip Thu them cong cu khac
+::: tip Thử thêm công cụ khác
 
-Ngoai z.ai, ban co the thu nhieu cong cu khac. Dieu quan trong khong phai ten cong cu, ma la vong lap:
+Ngoài z.ai, bạn có thể thử nhiều công cụ khác. Điều quan trọng không phải tên công cụ, mà là vòng lặp:
 
-1. mo ta yeu cau,
-2. thu chay,
-3. chi ro hien tuong sai,
-4. yeu cau sua cu the,
-5. lap lai.
+1. mô tả yêu cầu,
+2. thử chạy,
+3. chỉ rõ hiện tượng sai,
+4. yêu cầu sửa cụ thể,
+5. lặp lại.
 
 :::
 
-### 2.2 Lap trinh doi thoai lam duoc gi va khong lam duoc gi
+### 2.2 Lập trình đối thoại làm được gì và không làm được gì
 
-Tom tat thuc dung:
+Tóm tắt thực dụng:
 
-- AI rat gioi voi bai toan "nho va ro rang" neu ban mo ta UI va tuong tac cu the.
-- Voi du an lon, ban can goc nhin theo quy trinh: chia thanh buoc, dinh nghia input/output va giao cho AI lam tung phan.
-- "Viet duoc" khong dong nghia "dung duoc cho nguoi that". San xuat can test, bao mat va review.
+- AI rất giỏi với bài toán "nhỏ và rõ ràng" nếu bạn mô tả UI và tương tác cụ thể.
+- Với dự án lớn, bạn cần góc nhìn theo quy trình: chia thành bước, định nghĩa input/output và giao cho AI làm từng phần.
+- "Viết được" không đồng nghĩa "dùng được cho người thật". Sản xuất cần test, bảo mật và review.
 
-::: warning Huong dan theo tinh huong
+::: warning Hướng dẫn theo tình huống
 
-- **Prototype / demo / cong cu noi bo**: rat hop de AI lam ban dau, ban iter tiep.
-- **San pham lon cho nguoi dung that**: can dau tu dai han ve ky thuat.
-- **He thong yeu cau bao mat/tuân thu cao (thanh toan, y te, rui ro)**: khong nen "sinh xong la deploy", phai co quy trinh kiem tra nghiem ngat.
+- **Prototype / demo / công cụ nội bộ**: rất hợp để AI làm bản đầu, bạn iter tiếp.
+- **Sản phẩm lớn cho người dùng thật**: cần đầu tư dài hạn về kỹ thuật.
+- **Hệ thống yêu cầu bảo mật/tuân thủ cao (thanh toán, y tế, rủi ro)**: không nên "sinh xong là deploy", phải có quy trình kiểm tra nghiêm ngặt.
 
 :::
 
 <div style="margin: 50px 0;">
   <ClientOnly>
     <StepBar :active="2" :items="[
-      { title: 'Kho khan va co hoi', description: 'Mot cach moi de tao san pham' },
-      { title: 'Kham pha nhanh', description: 'Trai nghiem 60 giay' },
-      { title: 'Thuc hanh AI-native', description: 'Xay Snake AI-native' },
-      { title: 'Mo rong sang tao', description: 'Tu lam mot game khac' }
+      { title: 'Khó khăn và cơ hội', description: 'Một cách mới để tạo sản phẩm' },
+      { title: 'Khám phá nhanh', description: 'Trải nghiệm 60 giây' },
+      { title: 'Thực hành AI-native', description: 'Xây Snake AI-native' },
+      { title: 'Mở rộng sáng tạo', description: 'Tự làm một game khác' }
     ]" />
   </ClientOnly>
 </div>
 
-## 3. Thuc hanh: lam mot Snake "AI-native"
+## 3. Thực hành: làm một Snake "AI-native"
 
-"AI-native" o day nghia la: game khong chi la Snake co ban, ma co them mot kha nang AI gan vao gameplay. Vi du:
+"AI-native" ở đây nghĩa là: game không chỉ là Snake cơ bản, mà có thêm một khả năng AI gắn vào gameplay. Ví dụ:
 
-- an mot tu thi dich va tao vi du cau,
-- an mot chu de thi sinh ra mot cau/noi dung ngan,
-- an mot prompt thi sinh ra mot hinh.
+- ăn một từ thì dịch và tạo ví dụ câu,
+- ăn một chủ đề thì sinh ra một câu/nội dung ngắn,
+- ăn một prompt thì sinh ra một hình.
 
-Quan trong nhat la tap quy trinh: mo ta ro -> de AI lam -> thu chay -> sua theo ket qua.
+Quan trọng nhất là tập quy trình: mô tả rõ -> để AI làm -> thử chạy -> sửa theo kết quả.
 
-> Meo khi yeu cau sua:
+> Mẹo khi yêu cầu sửa:
 >
-> 1. mo ta hien tuong quan sat duoc,
-> 2. noi ro hanh vi ky vong,
-> 3. neu co loi, copy day du log/stack,
-> 4. yeu cau sua toi thieu can thiet.
+> 1. mô tả hiện tượng quan sát được,
+> 2. nói rõ hành vi kỳ vọng,
+> 3. nếu có lỗi, copy đầy đủ log/stack,
+> 4. yêu cầu sửa tối thiểu cần thiết.
 
-De theo doi trinh tu thuc hanh, ban se thay cac anh minh hoa:
+Để theo dõi trình tự thực hành, bạn sẽ thấy các ảnh minh họa:
 
 > ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/image12.png)
 >
@@ -187,39 +187,39 @@ De theo doi trinh tu thuc hanh, ban se thay cac anh minh hoa:
 
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/image15.png)
 
-Khi gap loi, dung doan. Hay copy loi va yeu cau AI giai thich bang ngon ngu don gian, sau do dua ra sua doi cu the.
+Khi gặp lỗi, đừng đoán. Hãy copy lỗi và yêu cầu AI giải thích bằng ngôn ngữ đơn giản, sau đó đưa ra sửa đổi cụ thể.
 
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/image56.png)
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/image57.png)
 ![](../../../zh-cn/stage-1/ai-capabilities-through-games/images/image58.png)
 
-## 4. Mo rong: tu lam mot mini game cua rieng ban
+## 4. Mở rộng: tự làm một mini game của riêng bạn
 
-Khi Snake da chay, muc tieu khong phai nho het code, ma la tao bien the.
+Khi Snake đã chạy, mục tiêu không phải nhớ hết code, mà là tạo biến thể.
 
-Goi y:
+Gợi ý:
 
-- game phan xa (bam dung thoi diem),
-- quiz tu vung,
-- dong ho dem nguoc voi phan thuong,
-- tao the (card) voi diem so.
+- game phản xạ (bấm đúng thời điểm),
+- quiz từ vựng,
+- đồng hồ đếm ngược với phần thưởng,
+- tạo thẻ (card) với điểm số.
 
-Buoc quan trong: dinh nghia vong lap cua game (input -> state -> output) roi moi nho AI implement.
+Bước quan trọng: định nghĩa vòng lặp của game (input -> state -> output) rồi mới nhờ AI implement.
 
 ![1767350588191](../../../zh-cn/stage-1/ai-capabilities-through-games/images/1767350588191.png)
 
-## Bai tap
+## Bài tập
 
-1. Lam lai Snake co ban voi mau sac va UI cua ban.
-2. Them it nhat 1 kha nang AI (dich, tom tat, sinh text...).
-3. Tu tao mot mini game/dem o don gian nhung choi duoc.
+1. Làm lại Snake cơ bản với màu sắc và UI của bạn.
+2. Thêm ít nhất 1 khả năng AI (dịch, tóm tắt, sinh text...).
+3. Tự tạo một mini game/demo đơn giản nhưng chơi được.
 
-## Buoc tiep theo
+## Bước tiếp theo
 
-O cac chuong tiep theo, ta se ket noi cac nang luc AI cu the hon (text-to-text, image-to-text, text-to-image) va tien toi cac du an day du hon.
+Ở các chương tiếp theo, ta sẽ kết nối các năng lực AI cụ thể hơn (text-to-text, image-to-text, text-to-image) và tiến tới các dự án đầy đủ hơn.
 
 <RelatedArticles :articles="relatedArticles" />
 ---
-title: 'So cap 1: Thoi dai AI, noi la lap trinh'
-description: 'Lam game ran AI-native bang doi thoai, sau do ap dung workflow de tao mini game hoac demo cua rieng ban.'
+title: 'Sơ cấp 1: Thời đại AI, nói là lập trình'
+description: 'Làm game rắn AI-native bằng đối thoại, sau đó áp dụng workflow để tạo mini game hoặc demo của riêng bạn.'
 ---
